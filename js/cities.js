@@ -1151,7 +1151,7 @@ trashMassive.push(filterMassive[randomCities]);
 
 console.log(trashMassive);
 } else{
-  alert('Такого города нет!');
+  alert('Такого города нет');
 }
 };
 
