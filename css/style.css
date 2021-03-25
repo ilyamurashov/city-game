@@ -1,0 +1,94 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background: #252525;
+}
+
+.wrapper .citiesGame-main {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  max-width: 800px;
+  height: 100%;
+  max-height: 500px;
+  margin: 8.5% 0 0 22.5%;
+  background: -webkit-gradient(linear, left top, left bottom, from(#000000), color-stop(94.05%, rgba(21, 61, 140, 0.81)), color-stop(99.97%, rgba(38, 112, 255, 0)), color-stop(99.98%, rgba(177, 94, 94, 0)), color-stop(99.99%, rgba(177, 94, 94, 0)), to(rgba(177, 94, 94, 0))), #7C7C7C;
+  background: linear-gradient(180deg, #000000 0%, rgba(21, 61, 140, 0.81) 94.05%, rgba(38, 112, 255, 0) 99.97%, rgba(177, 94, 94, 0) 99.98%, rgba(177, 94, 94, 0) 99.99%, rgba(177, 94, 94, 0) 100%), #7C7C7C;
+}
+
+.wrapper .citiesGame-main .info-svg {
+  width: 33px;
+  height: 33px;
+  margin: 2% 0 0 90%;
+}
+
+.wrapper .citiesGame-main #message {
+  margin: 8% 0 1% 0;
+  font-family: Yeon Sung;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 48px;
+  line-height: 60px;
+  text-align: center;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+}
+
+.wrapper .citiesGame-main .start-game {
+  font-family: Yeon Sung;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 22px;
+  line-height: 60px;
+  text-align: center;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+.wrapper .citiesGame-main .citiesName {
+  border: none;
+}
+
+.wrapper .citiesGame-main .computer {
+  font-family: Yeon Sung;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 60px;
+  text-align: center;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+.wrapper .citiesGame-main .bg-city {
+  position: absolute;
+  margin: 46.1% 0 0 -78%;
+  width: 22%;
+}
+
+.wrapper .citiesGame-main .bg-city2 {
+  position: absolute;
+  margin: 46.1% 0 0 78%;
+  width: 22%;
+}
+/*# sourceMappingURL=style.css.map */
