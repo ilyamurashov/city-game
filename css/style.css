@@ -63,7 +63,7 @@
   color: #FFFFFF;
 }
 
-.wrapper .citiesGame-main #citiesName {
+.wrapper .citiesGame-main .citiesName {
   border: none;
   width: 180px;
   height: 25px;
