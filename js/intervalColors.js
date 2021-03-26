@@ -6,6 +6,9 @@ setInterval(function winColor(){
   let wind5 = document.querySelector('.st5');
   let wind6 = document.querySelector('.st6');
   let wind7 = document.querySelector('.st7');
+  let wind8 = document.querySelector('.st8');
+  let wind9 = document.querySelector('.st9');
+  let wind10 = document.querySelector('.st10');
   wind1.setAttribute("fill", 'yellow');
   wind2.setAttribute("fill", 'yellow');
   wind3.setAttribute("fill", 'yellow');
@@ -13,6 +16,9 @@ setInterval(function winColor(){
   wind5.setAttribute("fill", 'yellow');
   wind6.setAttribute("fill", 'yellow');
   wind7.setAttribute("fill", 'yellow');
+  wind8.setAttribute("fill", 'yellow');
+  wind9.setAttribute("fill", 'yellow');
+  wind10.setAttribute("fill", 'yellow');
 },5000);
 
 setInterval(function winColor1(){
@@ -23,6 +29,9 @@ setInterval(function winColor1(){
   let wind5 = document.querySelector('.st5');
   let wind6 = document.querySelector('.st6');
   let wind7 = document.querySelector('.st7');
+  let wind8 = document.querySelector('.st8');
+  let wind9= document.querySelector('.st9');
+  let wind10 = document.querySelector('.st10');
   wind1.setAttribute("fill", ' ');
   wind2.setAttribute("fill", ' ');
   wind3.setAttribute("fill", ' ');
@@ -30,6 +39,9 @@ setInterval(function winColor1(){
   wind5.setAttribute("fill", ' ');
   wind6.setAttribute("fill", ' ');
   wind7.setAttribute("fill", ' ');
+  wind8.setAttribute("fill", ' ');
+  wind9.setAttribute("fill", ' ');
+  wind10.setAttribute("fill", ' ');
 }, 15000);
 
 setInterval(function winColor2(){
@@ -41,6 +53,8 @@ setInterval(function winColor2(){
   let wind16 = document.querySelector('.st16');
   let wind17 = document.querySelector('.st17');
   let wind18 = document.querySelector('.st18');
+  let wind19 = document.querySelector('.st19');
+  let wind20 = document.querySelector('.st20');
   wind11.setAttribute("fill", 'yellow');
   wind12.setAttribute("fill", 'yellow');
   wind13.setAttribute("fill", 'yellow');
@@ -49,6 +63,8 @@ setInterval(function winColor2(){
   wind16.setAttribute("fill", 'yellow');
   wind17.setAttribute("fill", 'yellow');
   wind18.setAttribute("fill", 'yellow');
+  wind19.setAttribute("fill", 'yellow');
+  wind20.setAttribute("fill", 'yellow');
 },5000);
 
 setInterval(function winColor3(){
@@ -60,6 +76,8 @@ setInterval(function winColor3(){
   let wind16 = document.querySelector('.st16');
   let wind17 = document.querySelector('.st17');
   let wind18 = document.querySelector('.st18');
+  let wind19 = document.querySelector('.st19');
+  let wind20 = document.querySelector('.st20');
   wind11.setAttribute("fill", ' ');
   wind12.setAttribute("fill", ' ');
   wind13.setAttribute("fill", ' ');
@@ -68,5 +86,7 @@ setInterval(function winColor3(){
   wind16.setAttribute("fill", ' ');
   wind17.setAttribute("fill", ' ');
   wind18.setAttribute("fill", ' ');
+  wind19.setAttribute("fill", ' ');
+  wind20.setAttribute("fill", ' ');
 }, 20000);
 
