@@ -1,4 +1,3 @@
-
 let citiesMassive = ['Абаза',
 'Абакан', 
 'Абдулино',
@@ -1117,46 +1116,55 @@ let citiesMassive = ['Абаза',
 'Ясный',
    'Яхрома'];
 let trashMassive = []
-  
-function messaje(){ 
+let cities = document.querySelector('.citiesName');
 
+
+function messaje(){ 
   let cities = document.querySelector('.citiesName').value;
   let computer = document.querySelector('.computer');  
   let citiLastSymbol =  cities[cities.length - 1].toUpperCase();
   let filterMassive = [];
+  let indexReverceTextTrash = trashMassive.indexOf(cities);
   let indexReverceText =  citiesMassive.indexOf(cities);
-   console.log(Boolean(cities === citiesMassive[indexReverceText]));
-   if(cities === citiesMassive[indexReverceText]){
-
+  //  console.log(Boolean(cities === citiesMassive[indexReverceText]));
+  //  console.log(Boolean(cities === trashMassive[indexReverceTextTrash]));
+   if( cities === trashMassive[indexReverceTextTrash]){
+     alert('Такой город уже был!');
+   
+    } else {
+  
+      if(cities === citiesMassive[indexReverceText]){
     citiesMassive.forEach(function(item, i, citiesMassive) {
-    if(citiLastSymbol === citiesMassive[i].charAt(0)){ 
+    
+      if(citiLastSymbol === citiesMassive[i].charAt(0)){ 
       filterMassive.push(citiesMassive[i]);
     }
   })
 
-let randomCities = Math.floor(Math.random() * (filterMassive.length - 0)) + 1;
-
+  let randomCities = Math.floor(Math.random() * (filterMassive.length - 0)) + 1;
 computer.textContent =  filterMassive[randomCities];
 
 let indexCities = citiesMassive.indexOf(String(cities));
-let indexRandomCities = citiesMassive.indexOf(filterMassive[String(randomCities)]);
 
+let indexRandomCities = citiesMassive.indexOf(filterMassive[String(randomCities)]);
 citiesMassive.splice(indexCities, 1);
 citiesMassive.splice(indexRandomCities, 1);
-
 console.log(citiesMassive);
-
 trashMassive.push(cities);
 trashMassive.push(filterMassive[randomCities]);
-
 console.log(trashMassive);
 } else{
   alert('Такого города нет');
 }
 };
 
+};
 
 
-
-
+cities.addEventListener('keyup', function(event){
+  event.preventDefault();
+  if(event.keyCode === 13){
+   return messaje();
+  }
+});
 
