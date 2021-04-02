@@ -1116,26 +1116,25 @@ let citiesMassive = ['Абаза',
 'Ясный',
    'Яхрома']; // основной массив с названиями городов
 let trashMassive = [] // В этот массив добавляются города которые были показаны во время игры и впоследствии удалены из массива "citiesMassive"
-let sortComputerMessage = [] // пока нет описания, фича не добавлена
+// пока нет описания, фича не добавлена
 let cities = document.querySelector('.citiesName'); // INPUT в который вы вводите название города 
-
+let sortComputerMessage = [] 
 
 function messaje(){ 
     
-  // if(cities.charAt(0) === sortComputerUppercase || trashMassive.length  <= Number(0)){
-  
     let cities = document.querySelector('.citiesName').value;
   let computer = document.querySelector('.computer'); // тег <P> в котором отображается ответ компьютера с названием города
   let citiLastSymbol =  cities[cities.length - 1].toUpperCase();// Делает последнюю букву названия вашего города из INPUT заглавной( в верхнем регистре)
   let filterMassive = [];// В этот массив добавляется сортированные названия городов по Первой букве из общего массива городов
   let indexReverceTextTrash = trashMassive.indexOf(cities);
   let indexReverceText =  citiesMassive.indexOf(cities);
- 
-   if( cities === trashMassive[indexReverceTextTrash]){
+  
+  if(cities.charAt(0) === computer.textContent.substr(-1) || computer.textContent ==''){
+   
+    if( cities === trashMassive[indexReverceTextTrash]){
      alert('Такой город уже был!');
    
     } else {
-
       if(cities === citiesMassive[indexReverceText]){
     citiesMassive.forEach(function(item, i, citiesMassive) {
     
@@ -1143,58 +1142,35 @@ function messaje(){
       filterMassive.push(citiesMassive[i]);
     }
   })
-  
 
-  
-  // if(cities.charAt(0) === sortComputerUppercase || trashMassive.length  <= Number(0)){
-  let randomCities = Math.floor(Math.random() * (filterMassive.length - 0)) + 1;// Выдает ранодомный, город из отфильтрованного массива
-  computer.textContent = filterMassive[randomCities]; // Тут компьютер выводит название города
-//   sortComputerMessage.push(filterMassive[randomCities]);// Массив для новой фичи, описания пока что нет
-//   console.log(sortComputerMessage);
-// let sortComputerElem = sortComputerMessage[sortComputerMessage.length - 1];
-// let sortComputerUppercase = sortComputerElem.charAt(sortComputerElem.length - 1).toUpperCase(); 
  
-// console.log(sortComputerElem)
-  // } else {
-  //   alert('dsfd')
-  // }
 
-  // if(cities.charAt(0) === sortComputerUppercase  || trashMassive.length  <= Number(0)){
-// sortComputerMessage.push(filterMassive[randomCities]);
-// let sortComputerElem = sortComputerMessage[sortComputerMessage.length - 1];
-// sortComputerElem.toUpperCase()
+  let randomCities = Math.floor(Math.random() * (filterMassive.length - 0)) + 1;// Выдает ранодомный, город из отфильтрованного массива                                              
+  computer.textContent = filterMassive[randomCities].toUpperCase();
 
-// let sortComputerUppercase = sortComputerElem.charAt(sortComputerElem.length - 1).toUpperCase()  
-// computer.textContent = filterMassive[randomCities];
-// console.log(Boolean(sortComputerElem === cities.charAt(0)  || trashMassive.length  <= Number(0)))
-// console.log(sortComputerElem);
-  // } else {
-  //   alert('Другая буква');
-  // }
- 
 let indexCities = citiesMassive.indexOf(String(cities));
 
 let indexRandomCities = citiesMassive.indexOf(filterMassive[String(randomCities)]);
 
 citiesMassive.splice(indexCities, 1);
+
 citiesMassive.splice(indexRandomCities, 1);
-console.log(citiesMassive);
+
 trashMassive.push(cities);
+
 trashMassive.push(filterMassive[randomCities]);
-console.log(trashMassive);
+console.log(trashMassive)
 
 } else{
   alert('Такого города нет');
+
 }
-
 };
-//  } else {
-//   alert('Вам нужно ввести город на' + ' ' + sortComputerUppercase);
-// }
-  
+} else {
+  alert('Введите город на букву:' + ' ' +  computer.textContent.substr(-1));
 };
 
-
+};
 
 cities.addEventListener('keyup', function(event){
   event.preventDefault();
