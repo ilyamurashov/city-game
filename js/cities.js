@@ -1,3 +1,8 @@
+/* В следующем обновлении: 
+* Добавить правило по которому подбор слова будет начинаться с предпоследней буквы
+* если предыдущее слово заканчивается на (Ь/Ъ/Ы)
+*/
+
 let citiesMassive = ['Абаза',
 'Абакан', 
 'Абдулино',
@@ -1118,63 +1123,67 @@ let citiesMassive = ['Абаза',
 let trashMassive = [] // В этот массив добавляются города которые были показаны во время игры и впоследствии удалены из массива "citiesMassive"
 // пока нет описания, фича не добавлена
 let cities = document.querySelector('.citiesName'); // INPUT в который вы вводите название города 
-let sortComputerMessage = [] 
 
 function messaje(){ 
     
-    let cities = document.querySelector('.citiesName').value;
+  let cities = document.querySelector('.citiesName').value; //  Город который вы вводите в поле INPUT
+  let citiesFirstSymbol = cities.charAt(0).toUpperCase() + cities.substr(1).toLowerCase()
+// console.log(citiesFirstSymbol)
   let computer = document.querySelector('.computer'); // тег <P> в котором отображается ответ компьютера с названием города
-  let citiLastSymbol =  cities[cities.length - 1].toUpperCase();// Делает последнюю букву названия вашего города из INPUT заглавной( в верхнем регистре)
+  let citiLastSymbol =  citiesFirstSymbol[citiesFirstSymbol.length - 1].toUpperCase();// Делает последнюю букву названия вашего города из INPUT заглавной( в верхнем регистре)
+  console.log(citiLastSymbol)
   let filterMassive = [];// В этот массив добавляется сортированные названия городов по Первой букве из общего массива городов
-  let indexReverceTextTrash = trashMassive.indexOf(cities);
-  let indexReverceText =  citiesMassive.indexOf(cities);
-  
-  if(cities.charAt(0) === computer.textContent.substr(-1) || computer.textContent ==''){
+  console.log(filterMassive)
+  let indexReverceTextTrash = trashMassive.indexOf(citiesFirstSymbol);
+  let indexReverceText =  citiesMassive.indexOf(citiesFirstSymbol)
+
+  if(citiesFirstSymbol.charAt(0) === computer.textContent.substr(-1) || computer.textContent === ''){ // Проверка на правило игры ( Ввод должен начинаться с буквы на которую оканчивается название города)
    
-    if( cities === trashMassive[indexReverceTextTrash]){
+    if( citiesFirstSymbol  === trashMassive[indexReverceTextTrash]){
      alert('Такой город уже был!');
    
     } else {
-      if(cities === citiesMassive[indexReverceText]){
-    citiesMassive.forEach(function(item, i, citiesMassive) {
+     
+      if(citiesFirstSymbol === citiesMassive[indexReverceText]){
+    citiesMassive.forEach(function(item, i, citiesMassive){
     
       if(citiLastSymbol === citiesMassive[i].charAt(0)){ 
-      filterMassive.push(citiesMassive[i]);
+      filterMassive.push(citiesMassive[i])
     }
   })
+console.log(citiesFirstSymbol)
+let randomCities = Math.floor(Math.random() * (filterMassive.length - 0)) + 1// Выдает ранодомный, город из отфильтрованного массива                                              
+computer.textContent = filterMassive[randomCities].toUpperCase()
 
- 
+let indexCities = citiesMassive.indexOf(String(citiesFirstSymbol))
 
-  let randomCities = Math.floor(Math.random() * (filterMassive.length - 0)) + 1;// Выдает ранодомный, город из отфильтрованного массива                                              
-  computer.textContent = filterMassive[randomCities].toUpperCase();
+let indexRandomCities = citiesMassive.indexOf(filterMassive[String(randomCities)])
 
-let indexCities = citiesMassive.indexOf(String(cities));
+citiesMassive.splice(indexCities, 1)
 
-let indexRandomCities = citiesMassive.indexOf(filterMassive[String(randomCities)]);
+citiesMassive.splice(indexRandomCities, 1)
 
-citiesMassive.splice(indexCities, 1);
-
-citiesMassive.splice(indexRandomCities, 1);
-
-trashMassive.push(cities);
+trashMassive.push(citiesFirstSymbol)
 
 trashMassive.push(filterMassive[randomCities]);
+console.log(citiesMassive)
 console.log(trashMassive)
 
-} else{
+}else{
   alert('Такого города нет');
+}
 
 }
-};
-} else {
-  alert('Введите город на букву:' + ' ' +  computer.textContent.substr(-1));
-};
 
-};
+}else{
+alert('Введите город на букву:' + ' ' +  computer.textContent.substr(-1));
+}
+  
+}
 
 cities.addEventListener('keyup', function(event){
   event.preventDefault();
   if(event.keyCode === 13){
    return messaje();
   }
-});// отправка функции messaje() на кнопку ENTER
+})// отправка функции messaje() на кнопку ENTER
