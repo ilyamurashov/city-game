@@ -1151,7 +1151,11 @@ function submit() {
     if (citiesFirstSymbol.charAt(0) === nextSymbol || computer.textContent === '') { // Проверка на правило игры ( Ввод должен начинаться с буквы на которую оканчивается название города)
 
         if (citiesFirstSymbol === trashArray[indexReverseTextTrash]) {
-            alert('Такой город уже был!');
+            Swal.fire({
+                icon: 'error',
+                title: 'Упс...',
+                text: 'Такой город уже был!',
+            })
         } else {
             if (citiesFirstSymbol === citiesArray[indexReverseText]) {
                 citiesArray.forEach(function (item, i, citiesMassive) {
@@ -1185,8 +1189,7 @@ function submit() {
     } else {
         Swal.fire({
             icon: 'error',
-            title: 'Упс...',
-            text: 'Введите город на букву ' + nextSymbol.toUpperCase(),
+            title: 'Введите город на букву ' + nextSymbol.toUpperCase(),
         })
     }
 
