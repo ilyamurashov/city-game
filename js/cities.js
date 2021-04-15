@@ -1127,7 +1127,7 @@ let trashArray = [] // В этот массив добавляются горо�
 // пока нет описания, фича не добавлена
 let cities = document.querySelector('.citiesName'); // INPUT в который вы вводите название города 
 
-function messaje() {
+function submit() {
 
     let cities = document.querySelector('.citiesName').value; //  Город который вы вводите в поле INPUT
     let citiesFirstSymbol = cities.charAt(0).toUpperCase() + cities.substr(1).toLowerCase()
@@ -1175,11 +1175,19 @@ function messaje() {
                 //console.log(citiesArray)
                 //console.log(trashArray)
             } else {
-                alert('Такого города нет');
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Упс...',
+                    text: 'Такого города нет!',
+                })
             }
         }
     } else {
-        alert('Введите город на букву:' + ' ' + nextSymbol.toUpperCase());
+        Swal.fire({
+            icon: 'error',
+            title: 'Упс...',
+            text: 'Введите город на букву ' + nextSymbol.toUpperCase(),
+        })
     }
 
 }
@@ -1187,6 +1195,6 @@ function messaje() {
 cities.addEventListener('keyup', function (event) {
     event.preventDefault();
     if (event.keyCode === 13) {
-        return messaje();
+        return submit();
     }
-})// отправка функции messaje() на кнопку ENTER
+})// отправка функции submit() на кнопку ENTER
