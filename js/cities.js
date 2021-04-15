@@ -1121,6 +1121,11 @@ let citiesArray = [
     'Ясногорск',
     'Ясный',
     'Яхрома',
+    'Южа',
+    'Абвъ',
+    'Ууу',
+    'Aаа',
+    'Восток'
 ]; // основной массив с названиями городов
 
 let trashArray = [] // В этот массив добавляются города которые были показаны во время игры и впоследствии удалены из массива "citiesArray"
@@ -1133,10 +1138,11 @@ function submit() {
     let citiesFirstSymbol = cities.charAt(0).toUpperCase() + cities.substr(1).toLowerCase()
     // console.log(citiesFirstSymbol)
     let computer = document.querySelector('.computer'); // тег <P> в котором отображается ответ компьютера с названием города
-    let cityLastSymbol = citiesFirstSymbol[citiesFirstSymbol.length - 1]
+
+    let cityLastSymbol = cities.replaceAll(/[йъьы]/ig, '');
     if (cityLastSymbol !== undefined) {
         // Делает последнюю букву названия вашего города из INPUT заглавной( в верхнем регистре)
-        cityLastSymbol = cityLastSymbol.toUpperCase();
+        cityLastSymbol = cityLastSymbol.substr(cityLastSymbol.length - 1, 1).toUpperCase();
     }
 
     //console.log(cityLastSymbol)
@@ -1166,7 +1172,9 @@ function submit() {
 
                 //console.log(citiesFirstSymbol)
                 let randomCities = Math.floor(Math.random() * (filterMassive.length - 0)) + 1 // Выдает ранодомный, город из отфильтрованного массива
-                computer.textContent = filterMassive[randomCities].toUpperCase()
+                if (filterMassive[randomCities] !== undefined) {
+                    computer.textContent = filterMassive[randomCities].toUpperCase()
+                }
 
                 let indexCities = citiesArray.indexOf(String(citiesFirstSymbol))
                 let indexRandomCities = citiesArray.indexOf(filterMassive[String(randomCities)])
