@@ -1133,14 +1133,22 @@ function messaje() {
     let citiesFirstSymbol = cities.charAt(0).toUpperCase() + cities.substr(1).toLowerCase()
     // console.log(citiesFirstSymbol)
     let computer = document.querySelector('.computer'); // тег <P> в котором отображается ответ компьютера с названием города
-    let cityLastSymbol = citiesFirstSymbol[citiesFirstSymbol.length - 1].toUpperCase();// Делает последнюю букву названия вашего города из INPUT заглавной( в верхнем регистре)
+    let cityLastSymbol = citiesFirstSymbol[citiesFirstSymbol.length - 1]
+    if (cityLastSymbol !== undefined) {
+        // Делает последнюю букву названия вашего города из INPUT заглавной( в верхнем регистре)
+        cityLastSymbol = cityLastSymbol.toUpperCase();
+    }
+
     //console.log(cityLastSymbol)
     let filterMassive = [];// В этот массив добавляется сортированные названия городов по Первой букве из общего массива городов
     //console.log(filterMassive)
     let indexReverseTextTrash = trashArray.indexOf(citiesFirstSymbol);
     let indexReverseText = citiesArray.indexOf(citiesFirstSymbol)
 
-    if (citiesFirstSymbol.charAt(0) === computer.textContent.substr(-1) || computer.textContent === '') { // Проверка на правило игры ( Ввод должен начинаться с буквы на которую оканчивается название города)
+    // Удаляем все символы, с которых не может начинаться город и берем последний
+    let nextSymbol = computer.textContent.replaceAll(/[ыьъй]/ig, '').substr(-1);
+
+    if (citiesFirstSymbol.charAt(0) === nextSymbol || computer.textContent === '') { // Проверка на правило игры ( Ввод должен начинаться с буквы на которую оканчивается название города)
 
         if (citiesFirstSymbol === trashArray[indexReverseTextTrash]) {
             alert('Такой город уже был!');
@@ -1171,7 +1179,7 @@ function messaje() {
             }
         }
     } else {
-        alert('Введите город на букву:' + ' ' + computer.textContent.substr(-1));
+        alert('Введите город на букву:' + ' ' + nextSymbol.toUpperCase());
     }
 
 }
