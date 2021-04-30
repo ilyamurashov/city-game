@@ -4,7 +4,13 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+
+  <script src="vendor/sweetalert/sweetalert2.all.min.js"></script>
+  <!-- Optional: include a polyfill for ES6 Promises for IE11 -->
+  <script src="//cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.js"></script>
+  <link rel="stylesheet" href="vendor/sweetalert/sweetalert2.min.css">
+
+  <title>Города</title>
 <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -246,7 +252,7 @@
 </svg>
 
     <h1 id="message" >ГОРОДА</h1>
-    <a class="start-game" href="#" onclick="messaje()">Играть</a>
+    <a class="start-game" href="#" onclick="submit()">Играть</a>
     <input class="citiesName" type="text">
     <p class="computer"></p></div>
 </div>
